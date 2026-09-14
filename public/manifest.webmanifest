@@ -1,0 +1,9 @@
+{
+  "name": "SmartLab Asset Management",
+  "short_name": "SmartLab",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#14213d",
+  "icons": []
+}

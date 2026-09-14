@@ -1,0 +1,4 @@
+import { useEffect, useState } from 'react'
+import { Bell, Check } from 'lucide-react'
+import { getNotifications, markNotificationRead } from '../lib/store'
+export default function Notifications(){const [items,setItems]=useState([]);const load=()=>getNotifications().then(setItems);useEffect(load,[]);async function read(id){await markNotificationRead(id);load()}return <><div className="page-heading"><div><p className="eyebrow">ALERT CENTER</p><h1>Notifications</h1><p>Maintenance, calibration, fault and workflow alerts.</p></div></div><div className="notice-list">{items.map(n=><article className={`notice-card ${n.read?'read':''}`} key={n.id}><div className={`notice-icon ${n.type}`}><Bell size={18}/></div><div><b>{n.title}</b><p>{n.message}</p><span>{new Date(n.created_at).toLocaleString()}</span></div>{!n.read&&<button className="icon-btn" onClick={()=>read(n.id)} title="Mark read"><Check size={17}/></button>}</article>)}</div></>}

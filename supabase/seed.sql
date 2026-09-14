@@ -1,0 +1,6 @@
+insert into public.equipment(asset_id,name,category,manufacturer,model,serial_number,location,status,condition,purchase_date,warranty_expiry,next_maintenance,next_calibration,operating_hours,notes) values
+('EQP-001','Digital Oscilloscope','Test Equipment','Tektronix','TBS1102B','SN102938','Electronics Lab','available','good','2024-01-18','2027-01-18','2026-09-20','2026-10-02',842,'Primary bench oscilloscope.'),
+('EQP-002','Spectrum Analyzer','Communication','Rigol','DSA815','SA552013','Communication Lab','maintenance','fair','2023-08-05','2026-08-05','2026-09-12','2026-09-28',1260,'RF lab shared instrument.'),
+('EQP-003','Function Generator','Test Equipment','Keysight','33500B','FG33109','Electronics Lab','in_use','good','2025-02-12','2028-02-12','2026-10-08','2026-11-15',519,''),
+('EQP-004','Digital Multimeter','Measurement','Fluke','87V','DM87044','Measurement Lab','available','excellent','2025-07-11','2028-07-11','2026-11-25','2026-09-17',238,'Portable reference meter.'),
+('EQP-005','RF Signal Generator','Communication','Rohde & Schwarz','SMB100A','RF10055','Communication Lab','damaged','poor','2022-04-09','2025-04-09','2026-09-10','2026-09-10',2094,'Output instability reported.');

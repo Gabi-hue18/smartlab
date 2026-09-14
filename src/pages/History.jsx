@@ -1,0 +1,3 @@
+import { useEffect, useState } from 'react'
+import { getHistory } from '../lib/store'
+export default function History(){const [items,setItems]=useState([]);useEffect(()=>{getHistory().then(setItems)},[]);return <><div className="page-heading"><div><p className="eyebrow">TRACEABILITY</p><h1>Maintenance history</h1><p>Chronological record of service and calibration activity.</p></div></div><div className="panel timeline">{items.map(h=><div className="timeline-event" key={h.id}><div className="timeline-dot"/><div><div className="row-between"><b>{h.action}</b><span>{h.date}</span></div><p>{h.technician} · ₹{h.cost} · {h.result}</p></div></div>)}</div></>}
