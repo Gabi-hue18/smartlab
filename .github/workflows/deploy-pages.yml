@@ -2,8 +2,7 @@ name: Deploy SmartLab to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -12,8 +11,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -21,25 +20,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build SmartLab
         run: npm run build
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
@@ -52,6 +51,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy SmartLab
         id: deployment
         uses: actions/deploy-pages@v4
